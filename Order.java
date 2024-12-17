@@ -16,7 +16,7 @@ public class Order implements ActionListener {
     JButton dessertbutton = new JButton("Desserts");
     JButton saladbutton = new JButton("Salads");
     JButton mealbutton = new JButton("Meals");
-    private ArrayList<Meal> order = new ArrayList<Meal>();
+    private static ArrayList<Meal> order = new ArrayList<Meal>();
 
 
         // Meals
