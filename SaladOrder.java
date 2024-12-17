@@ -5,18 +5,6 @@ import java.awt.event.ActionListener;
 
 public class SaladOrder extends Order implements ActionListener {
 
-    // Salads
-    Meal s1 = new Meal(8,23,"Greek Salad",
-            "Tomato, cucumber, mixed pepper, olive, lemon, olive oil.",275,0);
-    Meal s2 = new Meal(9,23,"Broccoli Salad",
-            "Broccoli, cherry tomato, la russo lettuce, rocca, lemon, olive oil.",160,0);
-    Meal s3 = new Meal(10,23,"Quinoa Salad",
-            "Quinoa, avocado, cherry tomato. walnut, red pepper, carrot," +
-                    "cucumber, mixed greens, red beans, lemon and olive oil.",490,0);
-    Meal s4 = new Meal(11,23,"Asian Salad",
-            "Mixed peppers, mixed greens, artichoke, noodles, red beans, edmamme, grilled chicken served with"
-            +" light soy sauce and orange.",490,0);
-
     JLabel salad1label = new JLabel("0");
     JLabel salad2label = new JLabel("0");
     JLabel salad3label = new JLabel("0");
@@ -72,6 +60,7 @@ public class SaladOrder extends Order implements ActionListener {
 
         if(e.getSource() == add1button){
             Order.num++; num1++;
+            s1.setNum(num1);
             Order.price += s1.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             salad1label.setText(String.valueOf(num1));
@@ -81,6 +70,7 @@ public class SaladOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus1button && num1 > 0){
             Order.num--; num1--;
+            s1.setNum(num1);
             Order.price-= s1.getPrice();
             pricenumlabel.setText(String.valueOf(Order.price));
             mealnumlabel.setText(String.valueOf(Order.num));
@@ -89,6 +79,7 @@ public class SaladOrder extends Order implements ActionListener {
         }
         if(e.getSource() == add2button){
             Order.num++; num2++;
+            s2.setNum(num2);
             Order.price += s2.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             salad2label.setText(String.valueOf(num2));
@@ -97,6 +88,7 @@ public class SaladOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus2button && num2 > 0){
             Order.num--; num2--;
+            s2.setNum(num2);
             Order.price-=s2.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             pricenumlabel.setText(String.valueOf(Order.price));
@@ -105,6 +97,7 @@ public class SaladOrder extends Order implements ActionListener {
         }
         if(e.getSource() == add3button){
             Order.num++; num3++;
+            s3.setNum(num3);
             Order.price += s3.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             salad3label.setText(String.valueOf(num3));
@@ -113,6 +106,7 @@ public class SaladOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus3button && num3 > 0){
             Order.num--; num3--;
+            s3.setNum(num3);
             Order.price-=s3.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             pricenumlabel.setText(String.valueOf(Order.price));
@@ -122,6 +116,7 @@ public class SaladOrder extends Order implements ActionListener {
 
         if(e.getSource() == add4button){
             Order.num++; num4++;
+            s4.setNum(num4);
             Order.price += s4.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             salad4label.setText(String.valueOf(num4));
@@ -131,6 +126,7 @@ public class SaladOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus4button && num4 > 0){
             Order.num--; num4--;
+            s4.setNum(num4);
             Order.price-= s4.getPrice();
             pricenumlabel.setText(String.valueOf(Order.price));
             mealnumlabel.setText(String.valueOf(Order.num));

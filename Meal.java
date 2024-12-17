@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Meal implements Serializable{
 

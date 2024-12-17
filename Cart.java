@@ -1,42 +1,41 @@
 import javax.swing.*;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Cart implements ActionListener {
-
-    // private Map<String,Meal> order = new HashMap<>();
-    private List<Meal> order = new ArrayList<Meal>();
 
     JFrame f = new JFrame();
     JLabel l = new JLabel("Your Order");
     JCheckBox delivery = new JCheckBox("Delivery");
-    JButton checkbutton = new JButton("submit");
+    JButton checkboxbutton = new JButton("submit");
     JTextField addressfield = new JTextField();
     JLabel addresslabel = new JLabel("Address: ");
     JLabel detailslabel = new JLabel("Details(optional): ");
     JTextField detailsfield = new JTextField();
     JLabel tiplabel = new JLabel("Tip(optional): ");
     JTextField tipfield = new JTextField();
-    JCheckBox inside = new JCheckBox("Inside Restaurant");
     JLabel tablenumlabel = new JLabel("Table number: ");
     JTextField tablenumtextfield = new JTextField();
+    JButton continuenutton = new JButton("Continue order");
+
     int i = 1;
 
     Cart() {
+
         f.setLayout(null);
         // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         l.setBounds(50, 50, 100, 20);
 
         delivery.setBounds(170, 100, 100, 20);
-        inside.setBounds(280, 100, 200, 20);
 
-        checkbutton.setBounds(180, 150, 100, 20);
-        checkbutton.addActionListener(this);
+        checkboxbutton.setBounds(180, 150, 100, 20);
+        checkboxbutton.addActionListener(this);
+        continuenutton.setBounds(180,400,150,20);
+        continuenutton.addActionListener(this);
+
 
         addresslabel.setBounds(50, 200, 100, 20);
         addressfield.setBounds(100, 200, 100, 20);
@@ -62,7 +61,7 @@ public class Cart implements ActionListener {
         f.add(detailslabel);
         f.add(l);
         f.add(delivery);
-        f.add(checkbutton);
+        f.add(checkboxbutton);
         f.add(tipfield);
         f.add(tiplabel);
         f.add(tablenumlabel);
@@ -70,7 +69,7 @@ public class Cart implements ActionListener {
         f.add(addressfield);
         f.add(addresslabel);
         f.add(Order.pricelabel);
-        // f.add(inside);
+        f.add(continuenutton);
 
         f.setSize(500, 500);
         f.setVisible(true);
@@ -80,7 +79,7 @@ public class Cart implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == checkbutton) {
+        if (e.getSource() == checkboxbutton) {
             // if(e.getSource()==delivery){
             System.out.println("kkk");
             i++;
@@ -106,6 +105,31 @@ public class Cart implements ActionListener {
             f.revalidate();
             // f.repaint();
 
+        }
+    
+        if (e.getSource() == continuenutton) {
+            String details = detailsfield.getText();
+            String tip = tipfield.getText();
+            if(delivery.isSelected()){
+                String address = addressfield.getText();
+                if( address.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Enter the address!",
+                    "Title",JOptionPane.WARNING_MESSAGE);
+                    addressfield.setCaretColor(Color.red);
+                } else{
+                    Details d = new Details(Order.getOrder());
+                }
+            } else{
+                String table = tablenumtextfield.getText();
+                if( table.isEmpty() ){
+                    JOptionPane.showMessageDialog(null,"Enter the table number!",
+                    "Title",JOptionPane.WARNING_MESSAGE);
+                    tablenumtextfield.setCaretColor(Color.red);
+                } else{
+                    Details d = new Details(Order.getOrder());
+                }
+            }
+            
         }
     }
 }

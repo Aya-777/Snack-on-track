@@ -5,28 +5,6 @@ import java.awt.event.ActionListener;
 
 public class MealOrder extends Order implements ActionListener {
 
-    // Meals
-    static Meal m1 = new Meal(1,100,"Teryaki Chicken",
-            "Chicken cooked in soy sauce," +
-                    "honey and apple juice, mixed with capsicum, carrot," +
-                    " served with rice and broccoli." ,520,0);
-    static Meal m2 = new Meal(2,200,"Healthy Chicken Meal",
-            "grilled chicken, grilled broccoli" +
-                    ", grilled carrots,grilled beans,grilled fresh mushrooms, grilled potatoes," +
-                    "served with special sauce and rice cooked with an aromatic bouquet.",500,0);
-    static Meal m3 = new Meal(3,200,"Curry Chicken",
-            "Chicken cooked with skimmed coconut milk, mixed with capsicum," +
-                    "ginger, chicken broth, garlic, curry powder.",535,0);
-    static Meal m4 = new Meal(4,200,"Healthy Steak Meal",
-            "Grilled fillet, broccoli, fries, served with special sauce and rice," +
-                    " cooked with an aromatic bouquet.",590,0);
-    static Meal m5 = new Meal(5,200,"Chicken Avocado",
-            "Grilled chicken, roasted red pepper, roaster mushrooms, cashew cream, avocado," +
-                    " ciabatta bread seven seeds.",410,0);
-    static Meal m6 = new Meal(6,200,"Tuna", "Seven grain brown loofah bread served with olive tabinade, rocca, tomato,"+
-    "lemon fillet, capers and diet tuna.",340,0);
-    static Meal m7 = new Meal(7,200,"Turkey", "Tortilla bread served with turkey, rocca, pickels and special yogurt sauce."
-            ,225,0);
     
 
     JLabel meal1label = new JLabel("0");
@@ -134,6 +112,7 @@ public class MealOrder extends Order implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == add1button){
             Order.num++; num1++;
+            m1.setNum(num1);
             Order.price += m1.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             meal1label.setText(String.valueOf(num1));
@@ -143,6 +122,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus1button && num1 > 0){
             Order.num--; num1--;
+            m1.setNum(num1);
             Order.price-= m1.getPrice();
             pricenumlabel.setText(String.valueOf(Order.price));
             mealnumlabel.setText(String.valueOf(Order.num));
@@ -152,6 +132,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == add2button){
             Order.num++; num2++;
+            m2.setNum(num2);
             Order.price += m2.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             meal2label.setText(String.valueOf(num2));
@@ -160,6 +141,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus2button && num2 > 0){
             Order.num--; num2--;
+            m2.setNum(num2);
             Order.price-=m2.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             pricenumlabel.setText(String.valueOf(Order.price));
@@ -168,6 +150,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == add3button){
             Order.num++; num3++;
+            m3.setNum(num3);
             Order.price += m3.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             meal3label.setText(String.valueOf(num3));
@@ -177,6 +160,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus3button && num3 > 0){
             Order.num--; num3--;
+            m3.setNum(num3);
             Order.price-= m3.getPrice();
             pricenumlabel.setText(String.valueOf(Order.price));
             mealnumlabel.setText(String.valueOf(Order.num));
@@ -186,6 +170,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == add4button){
             Order.num++; num4++;
+            m4.setNum(num4);
             Order.price += m4.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             meal4label.setText(String.valueOf(num4));
@@ -195,6 +180,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus4button && num4 > 0){
             Order.num--; num4--;
+            m4.setNum(num4);
             Order.price-= m4.getPrice();
             pricenumlabel.setText(String.valueOf(Order.price));
             mealnumlabel.setText(String.valueOf(Order.num));
@@ -204,6 +190,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == add5button){
             Order.num++; num5++;
+            m5.setNum(num5);
             Order.price += m5.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             meal1label.setText(String.valueOf(num5));
@@ -213,6 +200,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus5button && num5 > 0){
             Order.num--; num5--;
+            m5.setNum(num5);
             Order.price -= m5.getPrice();
             pricenumlabel.setText(String.valueOf(Order.price));
             mealnumlabel.setText(String.valueOf(Order.num));
@@ -222,6 +210,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == add6button){
             Order.num++; num6++;
+            m6.setNum(num6);
             Order.price += m6.getPrice();
             mealnumlabel.setText(String.valueOf(Order.num));
             meal6label.setText(String.valueOf(num6));
@@ -231,6 +220,7 @@ public class MealOrder extends Order implements ActionListener {
         }
         if(e.getSource() == minus6button && num6 > 0){
             Order.num--; num6--;
+            m6.setNum(num6);
             Order.price -= m6.getPrice();
             pricenumlabel.setText(String.valueOf(Order.price));
             mealnumlabel.setText(String.valueOf(Order.num));
