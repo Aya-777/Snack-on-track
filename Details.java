@@ -1,26 +1,49 @@
 import java.awt.FlowLayout;
-import java.awt.List;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 
-import javax.swing.JFrame;
-import javax.swing.JProgressBar;
+import javax.swing.*;
 
 public class Details {
-    ArrayList<Meal> meals;
     JProgressBar detailsprogregressbar = new JProgressBar();
     JFrame f = new JFrame();
 
-    Details(ArrayList<Meal> meals){
-        this.meals=meals;
-
-        for(Meal i : meals){
-            if(i.getNum()>0){
-                
+    Details(Integer[] meals){
+        int index=0;
+        
+            // System.out.println(index+ " " + i);
+            try( BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("The order.txt"),StandardCharsets.UTF_8))){
+                for(int i : meals){
+                writer.write(String.valueOf(index) + "\n");
+                writer.write(String.valueOf(i)+ "\n");
+                // writer.write("fhfi");
+                // writer.close();
+                index++;
+                }
+            }catch(Exception e){
+                System.out.println(e.getStackTrace());
             }
+            
+
+        try(BufferedReader r = new BufferedReader(new FileReader("The order.txt"))) {
+            String line;
+            while((line=r.readLine()) != null){
+            System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         f.setLayout(new FlowLayout());
-        // detailsprogregressbar.setBounds(0, 0, 0, 0);
         detailsprogregressbar.setValue(0);
         detailsprogregressbar.setStringPainted(true);
 

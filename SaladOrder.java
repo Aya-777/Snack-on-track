@@ -22,8 +22,35 @@ public class SaladOrder extends Order implements ActionListener {
 
     static int num1=0,num2=0,num3=0,num4=0;
 
-
     SaladOrder(){
+        add1button.addActionListener(this);
+        add2button.addActionListener(this);
+        add3button.addActionListener(this);
+        add4button.addActionListener(this);
+        minus1button.addActionListener(this);
+        minus2button.addActionListener(this);
+        minus3button.addActionListener(this);
+        minus4button.addActionListener(this);
+
+        f.add(add1button);
+        f.add(add2button);
+        f.add(add3button);
+        f.add(add4button);
+
+        f.add(minus1button);
+        f.add(minus2button);
+        f.add(minus3button);
+        f.add(minus4button);
+
+        f.add(salad1label);
+        f.add(salad2label);
+        f.add(salad3label);
+        f.add(salad4label);
+
+        saladbutton.setEnabled(false);
+    }
+    SaladOrder(Integer[] order){
+        this.order=order;
 //        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         add1button.addActionListener(this);
@@ -54,88 +81,76 @@ public class SaladOrder extends Order implements ActionListener {
 
 
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == add1button){
-            Order.num++; num1++;
-            s1.setNum(num1);
-            Order.price += s1.getPrice();
-            mealnumlabel.setText(String.valueOf(Order.num));
+            num++; num1++;
+            order[7]++;
+            price += s1.getPrice();
+            mealnumlabel.setText(String.valueOf(num));
             salad1label.setText(String.valueOf(num1));
-            pricenumlabel.setText(String.valueOf(Order.price));
-            s1.setNum(s1.getNum()+1);
-
+            pricenumlabel.setText(String.valueOf(price));
         }
         if(e.getSource() == minus1button && num1 > 0){
-            Order.num--; num1--;
-            s1.setNum(num1);
-            Order.price-= s1.getPrice();
-            pricenumlabel.setText(String.valueOf(Order.price));
-            mealnumlabel.setText(String.valueOf(Order.num));
+            num--; num1--;
+            order[7]--;
+            price-= s1.getPrice();
+            pricenumlabel.setText(String.valueOf(price));
+            mealnumlabel.setText(String.valueOf(num));
             salad1label.setText(String.valueOf(num1));
-            s1.setNum(s1.getNum()-1);
         }
         if(e.getSource() == add2button){
-            Order.num++; num2++;
-            s2.setNum(num2);
-            Order.price += s2.getPrice();
-            mealnumlabel.setText(String.valueOf(Order.num));
+            num++; num2++;
+            order[8]++;
+            price += s2.getPrice();
+            mealnumlabel.setText(String.valueOf(num));
             salad2label.setText(String.valueOf(num2));
-            pricenumlabel.setText(String.valueOf(Order.price));
-            s2.setNum(s2.getNum()+1);
+            pricenumlabel.setText(String.valueOf(price));
         }
         if(e.getSource() == minus2button && num2 > 0){
-            Order.num--; num2--;
-            s2.setNum(num2);
-            Order.price-=s2.getPrice();
-            mealnumlabel.setText(String.valueOf(Order.num));
-            pricenumlabel.setText(String.valueOf(Order.price));
+            num--; num2--;
+            order[8]--;
+            price-=s2.getPrice();
+            mealnumlabel.setText(String.valueOf(num));
+            pricenumlabel.setText(String.valueOf(price));
             salad2label.setText(String.valueOf(num2));
-            s2.setNum(s2.getNum()-1);
         }
         if(e.getSource() == add3button){
-            Order.num++; num3++;
-            s3.setNum(num3);
-            Order.price += s3.getPrice();
-            mealnumlabel.setText(String.valueOf(Order.num));
+            num++; num3++;
+            order[9]++;
+            price += s3.getPrice();
+            mealnumlabel.setText(String.valueOf(num));
             salad3label.setText(String.valueOf(num3));
-            pricenumlabel.setText(String.valueOf(Order.price));
-            s3.setNum(s3.getNum()+1);
+            pricenumlabel.setText(String.valueOf(price));
         }
         if(e.getSource() == minus3button && num3 > 0){
-            Order.num--; num3--;
-            s3.setNum(num3);
-            Order.price-=s3.getPrice();
-            mealnumlabel.setText(String.valueOf(Order.num));
-            pricenumlabel.setText(String.valueOf(Order.price));
+            num--; num3--;
+            order[9]--;
+            price-=s3.getPrice();
+            mealnumlabel.setText(String.valueOf(num));
+            pricenumlabel.setText(String.valueOf(price));
             salad3label.setText(String.valueOf(num3));
-            s3.setNum(s3.getNum()-1);
         }
-
         if(e.getSource() == add4button){
-            Order.num++; num4++;
-            s4.setNum(num4);
-            Order.price += s4.getPrice();
-            mealnumlabel.setText(String.valueOf(Order.num));
+            num++; num4++;
+            order[10]++;
+            price += s4.getPrice();
+            mealnumlabel.setText(String.valueOf(num));
             salad4label.setText(String.valueOf(num4));
-            pricenumlabel.setText(String.valueOf(Order.price));
-            s4.setNum(s4.getNum()+1);
-
+            pricenumlabel.setText(String.valueOf(price));
         }
         if(e.getSource() == minus4button && num4 > 0){
-            Order.num--; num4--;
-            s4.setNum(num4);
-            Order.price-= s4.getPrice();
-            pricenumlabel.setText(String.valueOf(Order.price));
-            mealnumlabel.setText(String.valueOf(Order.num));
+            num--; num4--;
+            order[10]--;
+            price-= s4.getPrice();
+            pricenumlabel.setText(String.valueOf(price));
+            mealnumlabel.setText(String.valueOf(num));
             salad4label.setText(String.valueOf(num4));
-            s4.setNum(s4.getNum()-1);
         }
 
         if(e.getSource() == mealbutton){
-            MealOrder m = new MealOrder();
+            MealOrder m = new MealOrder(order);
 
         }
         if(e.getSource() == saladbutton){
@@ -143,7 +158,7 @@ public class SaladOrder extends Order implements ActionListener {
                     "Title",JOptionPane.WARNING_MESSAGE);
         }
          if(e.getSource() == dessertbutton){
-            DessertOrder d = new DessertOrder();
+            DessertOrder d = new DessertOrder(order);
         }
 
         if(e.getSource() == viewcartbutton){
@@ -152,11 +167,8 @@ public class SaladOrder extends Order implements ActionListener {
                         ,"Title",JOptionPane.ERROR_MESSAGE);
             }
             else {
-                Cart cart = new Cart();}
+                Cart cart = new Cart(order);}
         }
 
     }
-
-
-
 }

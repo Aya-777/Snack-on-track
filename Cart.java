@@ -3,9 +3,11 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Cart implements ActionListener {
 
+    Integer[] meals = new Integer[7];
     JFrame f = new JFrame();
     JLabel l = new JLabel("Your Order");
     JCheckBox delivery = new JCheckBox("Delivery");
@@ -22,8 +24,8 @@ public class Cart implements ActionListener {
 
     int i = 1;
 
-    Cart() {
-
+    Cart(Integer[] ll) {
+        meals=ll;
         f.setLayout(null);
         // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -103,7 +105,7 @@ public class Cart implements ActionListener {
                 detailslabel.setVisible(true);
             }
             f.revalidate();
-            // f.repaint();
+            f.repaint();
 
         }
     
@@ -117,7 +119,9 @@ public class Cart implements ActionListener {
                     "Title",JOptionPane.WARNING_MESSAGE);
                     addressfield.setCaretColor(Color.red);
                 } else{
-                    Details d = new Details(Order.getOrder());
+                    Details d = new Details(meals);
+                    // for(Meal i : order){
+                    //     System.out.println(i.getNum());}
                 }
             } else{
                 String table = tablenumtextfield.getText();
@@ -126,7 +130,7 @@ public class Cart implements ActionListener {
                     "Title",JOptionPane.WARNING_MESSAGE);
                     tablenumtextfield.setCaretColor(Color.red);
                 } else{
-                    Details d = new Details(Order.getOrder());
+                    Details d = new Details(meals);
                 }
             }
             
