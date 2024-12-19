@@ -21,7 +21,7 @@ public class funcs implements ActionListener {
 
         f.add(iconlabel);
         f.add(b);
-        f.setSize(500,500);
+        f.setSize(665,850);
         f.setVisible(true);
         f.setLocationRelativeTo(null);
 

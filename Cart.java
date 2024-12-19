@@ -21,6 +21,8 @@ public class Cart implements ActionListener {
     JLabel tablenumlabel = new JLabel("Table number: ");
     JTextField tablenumtextfield = new JTextField();
     JButton continuenutton = new JButton("Continue order");
+    JLabel pricelabel = new JLabel("Price : ");
+
 
     int i = 1;
 
@@ -70,7 +72,7 @@ public class Cart implements ActionListener {
         f.add(tablenumtextfield);
         f.add(addressfield);
         f.add(addresslabel);
-        f.add(Order.pricelabel);
+        f.add(pricelabel);
         f.add(continuenutton);
 
         f.setSize(500, 500);

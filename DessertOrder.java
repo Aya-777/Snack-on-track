@@ -27,7 +27,7 @@ public class DessertOrder extends Order implements ActionListener {
     static int num1=0,num2=0,num3=0,num4=0,num5=0;
 
     DessertOrder(){
-             add1button.addActionListener(this);
+        add1button.addActionListener(this);
         add2button.addActionListener(this);
         add3button.addActionListener(this);
         add4button.addActionListener(this);
@@ -56,7 +56,7 @@ public class DessertOrder extends Order implements ActionListener {
         f.add(dessert4label);
         f.add(dessert5label);
 
-        dessertbutton.setEnabled(false);
+        dessertsitem.setEnabled(false);
     }
     DessertOrder(Integer[] order){
         this.order=order;
@@ -91,20 +91,21 @@ public class DessertOrder extends Order implements ActionListener {
         f.add(dessert4label);
         f.add(dessert5label);
 
-        dessertbutton.setEnabled(false);
+        dessertsitem.setEnabled(false);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource() == add1button){
-            num++; num1++;
-            order[11]++;
-            price += d1.getPrice();
-            mealnumlabel.setText(String.valueOf(num));
-            dessert1label.setText(String.valueOf(num1));
-            pricenumlabel.setText(String.valueOf(price));
+        if(e.getSource() == dessert1label){
+            // num++; num1++;
+            // order[11]++;
+            // price += d1.getPrice();
+            // mealnumlabel.setText(String.valueOf(num));
+            // dessert1label.setText(String.valueOf(num1));
+            // pricenumlabel.setText(String.valueOf(price));
+            MealFrame ml = new MealFrame(1);
         }
         if(e.getSource() == minus1button && num1 > 0){
             num--; num1--;
@@ -180,16 +181,20 @@ public class DessertOrder extends Order implements ActionListener {
         }
 
         
-        if(e.getSource() == mealbutton){
+        if(e.getSource() == mealsitem){
             MealOrder m = new MealOrder(order);
         }
-        if(e.getSource() == saladbutton){
+        if(e.getSource() == saladsitem){
             SaladOrder s = new SaladOrder(order);
         }
-        if(e.getSource() == dessertbutton){
+        if(e.getSource() == dessertsitem){
 //            DessertOrder d = new DessertOrder();
                 JOptionPane.showMessageDialog(null,"You are already on dessert's order page.",
                         "Title",JOptionPane.WARNING_MESSAGE);
+
+        }
+        if(e.getSource()==drinksitem){
+            DrinksOrder drinks = new DrinksOrder(order);
 
         }
         if(e.getSource() == viewcartbutton){

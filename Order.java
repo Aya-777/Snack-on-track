@@ -8,18 +8,21 @@ import java.util.Map;
 
 public class Order implements ActionListener {
 
-    Integer [] order = new Integer[18];
+    static Integer [] order = new Integer[23];
+    static Meal[] meallist = new Meal[23]; 
     static int num=0,price=0;
     JFrame f = new JFrame();
     JLabel mealnumlabel = new JLabel(String.valueOf(num));
-    static JLabel pricelabel = new JLabel("Price : ");
+    JLabel pricelabel = new JLabel("Price : ");
     JLabel pricenumlabel = new JLabel(String.valueOf(price));
     JButton viewcartbutton = new JButton("View cart");
-    JLabel mealslabel = new JLabel("meals");
-
-    JButton dessertbutton = new JButton("Desserts");
-    JButton saladbutton = new JButton("Salads");
-    JButton mealbutton = new JButton("Meals");
+    JLabel mealslabel = new JLabel("Meals :");
+    
+    JMenuBar mealsbar = new JMenuBar();
+    JMenuItem mealsitem = new JMenuItem("Meals");
+    JMenuItem saladsitem = new JMenuItem("Salads");
+    JMenuItem dessertsitem = new JMenuItem("Desserts");
+    JMenuItem drinksitem = new JMenuItem("Drinks");
 
 
         // Meals
@@ -70,49 +73,66 @@ public class Order implements ActionListener {
 
 
     Order(){
-        f.setLayout(new FlowLayout());
+        f.setLayout(null);
+
+        mealsbar.add(mealsitem);
+        mealsbar.add(saladsitem);
+        mealsbar.add(dessertsitem);
+        mealsbar.add(drinksitem);
+
+        viewcartbutton.setBounds(50,200 , 130, 30);
+        mealslabel.setBounds(200, 212, 100, 20);
+        mealslabel.setFont(new Font("Consolas", Font.PLAIN ,20));
+        mealnumlabel.setBounds(295 , 212 , 50, 20);
+        mealnumlabel.setFont(new Font("Consolas", Font.PLAIN ,20));
+        pricelabel.setBounds(360, 212, 100, 20);
+        pricelabel.setFont(new Font("Consolas",Font.PLAIN,20));
+        pricenumlabel.setBounds(460, 212, 50, 20);
+        pricenumlabel.setFont(new Font("Consolas",Font.PLAIN,20));
+        mealsbar.setBounds(0, 250, 665, 50);
+        mealsbar.setFont(new Font("Consolas",Font.PLAIN,200));
 
         f.add(viewcartbutton);
         f.add(mealnumlabel);
         f.add(mealslabel);
         f.add(pricelabel);
         f.add(pricenumlabel);
-
-        f.add(mealbutton);
-        f.add(saladbutton);
-        f.add(dessertbutton);
-
+        f.add(mealsbar);
 
         viewcartbutton.addActionListener(this);
-        mealbutton.addActionListener(this);
-        saladbutton.addActionListener(this);
-        dessertbutton.addActionListener(this);
+        mealsitem.addActionListener(this);
+        saladsitem.addActionListener(this);
+        dessertsitem.addActionListener(this);
+        drinksitem.addActionListener(this);
 
       
-        order[0]=0;
-        order[1]=0;
-        order[2]=0;
-        order[3]=0;
-        order[4]=0;
-        order[5]=0;
-        order[6]=0;
-        order[7]=0;
-        order[8]=0;
-        order[9]=0;
-        order[10]=0;
-        order[11]=0;
-        order[12]=0;
-        order[13]=0;
-        order[14]=0;
-        order[15]=0;
-        order[16]=0;
-        order[17]=0;
+        meallist[0]=null;
+        meallist[1]=m1;
+        meallist[2]=m2;
+        meallist[3]=m3;
+        meallist[4]=m4;
+        meallist[5]=m5;
+        meallist[6]=m6;
+        meallist[7]=m7;
+        meallist[8]=s1;
+        meallist[9]=s2;
+        meallist[10]=s3;
+        meallist[11]=s4;
+        meallist[12]=d1;
+        meallist[13]=d2;
+        meallist[14]=d3;
+        meallist[15]=d4;
+        meallist[16]=null;
+        meallist[17]=null;
 
-        f.setSize(500,500);
+        f.setSize(665,850);
         f.setVisible(true);
         f.setLocationRelativeTo(null);
 
         
+    }
+    public static Meal getMeal(int mealnum){
+        return meallist[mealnum];
     }
 
     @Override

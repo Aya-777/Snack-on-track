@@ -21,7 +21,7 @@ public class Details {
             // System.out.println(index+ " " + i);
             try( BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("The order.txt"),StandardCharsets.UTF_8))){
                 for(int i : meals){
-                writer.write(String.valueOf(index) + "\n");
+                writer.write(String.valueOf(index) + " ");
                 writer.write(String.valueOf(i)+ "\n");
                 // writer.write("fhfi");
                 // writer.close();

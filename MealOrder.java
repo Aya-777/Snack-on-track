@@ -68,7 +68,8 @@ public class MealOrder extends Order implements ActionListener {
         f.add(meal5label);
         f.add(meal6label);
 
-        mealbutton.setEnabled(false);
+        mealsitem.setEnabled(false);
+
 
     }
     MealOrder(Integer[] order){
@@ -108,21 +109,19 @@ public class MealOrder extends Order implements ActionListener {
         f.add(meal5label);
         f.add(meal6label);
 
-        mealbutton.setEnabled(false);
-
-
+        mealsitem.setEnabled(false);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == add1button){
-            num++; num1++;
-            order[1]++;
-            price += m1.getPrice();
-            mealnumlabel.setText(String.valueOf(num));
-            meal1label.setText(String.valueOf(num1));
-            pricenumlabel.setText(String.valueOf(price));
-
+        if(e.getSource() == meal1label){
+            // num++; num1++;
+            // order[1]++;
+            // price += m1.getPrice();
+            // mealnumlabel.setText(String.valueOf(num));
+            // meal1label.setText(String.valueOf(num1));
+            // pricenumlabel.setText(String.valueOf(price));
+            MealFrame mf = new MealFrame(1);
         }
         if(e.getSource() == minus1button && num1 > 0){
             num--; num1--;
@@ -220,15 +219,15 @@ public class MealOrder extends Order implements ActionListener {
             meal6label.setText(String.valueOf(num6));
         }
 
-        if(e.getSource() == mealbutton){
+        if(e.getSource() == mealsitem ){
 //            Mealorder m = new Mealorder();
             JOptionPane.showMessageDialog(null,"You are already on meal's order page.",
                     "Title",JOptionPane.WARNING_MESSAGE);
         }
-        if(e.getSource() == saladbutton){
+        if(e.getSource() == saladsitem){
             SaladOrder s = new SaladOrder(order);
         }
-        if(e.getSource() == dessertbutton){
+        if(e.getSource() == dessertsitem){
             DessertOrder d = new DessertOrder(order);
         }
 

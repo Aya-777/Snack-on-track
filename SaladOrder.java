@@ -47,7 +47,7 @@ public class SaladOrder extends Order implements ActionListener {
         f.add(salad3label);
         f.add(salad4label);
 
-        saladbutton.setEnabled(false);
+        saladsitem.setEnabled(false);
     }
     SaladOrder(Integer[] order){
         this.order=order;
@@ -77,7 +77,7 @@ public class SaladOrder extends Order implements ActionListener {
         f.add(salad3label);
         f.add(salad4label);
 
-        saladbutton.setEnabled(false);
+        saladsitem.setEnabled(false);
 
 
     }
@@ -149,15 +149,15 @@ public class SaladOrder extends Order implements ActionListener {
             salad4label.setText(String.valueOf(num4));
         }
 
-        if(e.getSource() == mealbutton){
+        if(e.getSource() == mealsitem){
             MealOrder m = new MealOrder(order);
 
         }
-        if(e.getSource() == saladbutton){
+        if(e.getSource() == saladsitem){
             JOptionPane.showMessageDialog(null,"You are already on salad's order page.",
                     "Title",JOptionPane.WARNING_MESSAGE);
         }
-         if(e.getSource() == dessertbutton){
+         if(e.getSource() == dessertsitem){
             DessertOrder d = new DessertOrder(order);
         }
 
