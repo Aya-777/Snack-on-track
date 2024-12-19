@@ -30,7 +30,7 @@ public class funcs implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==b) {
-            MealOrder f2 = new MealOrder();
+            new MealOrder();
         }
     }
 }

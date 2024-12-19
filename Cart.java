@@ -1,9 +1,7 @@
 import javax.swing.*;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class Cart implements ActionListener {
 
@@ -25,7 +23,7 @@ public class Cart implements ActionListener {
 
 
     int i = 1;
-
+    Cart(){}
     Cart(Integer[] ll) {
         meals=ll;
         f.setLayout(null);
@@ -121,7 +119,7 @@ public class Cart implements ActionListener {
                     "Title",JOptionPane.WARNING_MESSAGE);
                     addressfield.setCaretColor(Color.red);
                 } else{
-                    Details d = new Details(meals);
+                    new Details(meals);
                     // for(Meal i : order){
                     //     System.out.println(i.getNum());}
                 }
@@ -132,7 +130,7 @@ public class Cart implements ActionListener {
                     "Title",JOptionPane.WARNING_MESSAGE);
                     tablenumtextfield.setCaretColor(Color.red);
                 } else{
-                    Details d = new Details(meals);
+                    new Details(meals);
                 }
             }
             
